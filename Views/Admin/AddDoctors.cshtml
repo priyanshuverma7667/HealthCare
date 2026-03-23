@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "AddDoctors";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+<div class="container-fluid my-5">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h1 class="bg-secondary text-center text-light p-3">Add Doctors</h1>
+            <p>@ViewBag.DocMessage</p>
+            <hr />
+            <form action="/Admin/AddDoctors" method="post">
+                <input type="text" class="form-control" placeholder="Doctor Name " name="DoctorName" /> <br />
+                <input type="text" class="form-control" placeholder="Specialization " name="Specialization" /> <br />
+                <input type="text" class="form-control" placeholder="Experience " name="Experience" /> <br />
+
+                <input type="submit" value="Add" class="btn btn-outline-success" />
+            </form>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
+

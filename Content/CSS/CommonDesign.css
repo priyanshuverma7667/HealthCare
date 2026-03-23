@@ -1,0 +1,6 @@
+﻿.enquiry-btn {
+    position: fixed;
+    left: -21px;
+    top: 400px;
+    transform: rotate(270deg);
+}

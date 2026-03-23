@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Notification";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="container-fluid my-5">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h1 class="bg-secondary text-center text-light p-3">Add Notifications</h1>
+            <hr />
+            <p>@ViewBag.Message</p>
+            <form action="/Admin/Notification" method="post">
+                <textarea class="form-control" name="Message" placeholder="Enter important Notice here" required></textarea> <br />
+                <input type="submit" value="Notification" class="btn btn-outline-success" />
+            </form>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
+

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "AdminLogIn";
+    Layout = "~/Views/Shared/General_Layout.cshtml";
+}
+
+<div class="col-sm-4"></div>
+<div class="col-sm-4 text-center py-5">
+    <div class="card p-4">
+        <h3><i class="bi bi-person-fill"></i> Admin Login</h3>
+        <form action="/General/AdminLogin" method="post">
+            <div class="form-floating mt-2">
+                <input type="text" placeholder="Email / Admin Id" class="form-control" id="floatingEmail" name="AdminId" />
+                <label for="floatingEmail"><i class="bi bi-envelope-fill"></i> Email</label>
+            </div>
+            <div class="form-floating mt-2">
+                <input type="password" placeholder="Password / Admin Id" class="form-control" id="floatingPassword" name="Password" />
+                <label for="floatingPassword"><i class="bi bi-lock-fill"></i> Password</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3 col-6">Log In</button>
+
+        </form>
+        <p class="mt-4">Are You not Admin? <a href="/General/Index" class="text-decoration-none">Go To Home Page</a></p>
+    </div>
+</div>
+<div class="col-sm-4"></div>
+

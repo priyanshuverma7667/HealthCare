@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="healthcaredbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adminmaster">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="doctormaster">
+          <Key>
+            <PropertyRef Name="DocterId" />
+          </Key>
+          <Property Name="DocterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DoctorName" Type="varchar" MaxLength="200" />
+          <Property Name="Specialization" Type="varchar" MaxLength="300" />
+          <Property Name="Experience" Type="varchar" MaxLength="50" />
+          <Property Name="AddedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="enquirymaster">
+          <Key>
+            <PropertyRef Name="EnquiryId" />
+          </Key>
+          <Property Name="EnquiryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" />
+          <Property Name="Email" Type="varchar" MaxLength="200" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Message" Type="varchar" MaxLength="800" />
+          <Property Name="EnquiryDT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="notificationmaster">
+          <Key>
+            <PropertyRef Name="NotiId" />
+          </Key>
+          <Property Name="NotiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="800" />
+          <Property Name="AddedOn" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="healthcaredbModelStoreContainer">
+          <EntitySet Name="adminmaster" EntityType="Self.adminmaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="doctormaster" EntityType="Self.doctormaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="enquirymaster" EntityType="Self.enquirymaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="notificationmaster" EntityType="Self.notificationmaster" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="healthcaredbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="adminmaster">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="doctormaster">
+          <Key>
+            <PropertyRef Name="DocterId" />
+          </Key>
+          <Property Name="DocterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DoctorName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Specialization" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Experience" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="enquirymaster">
+          <Key>
+            <PropertyRef Name="EnquiryId" />
+          </Key>
+          <Property Name="EnquiryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="EnquiryDT" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="notificationmaster">
+          <Key>
+            <PropertyRef Name="NotiId" />
+          </Key>
+          <Property Name="NotiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Message" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="AddedOn" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="healthcaredbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adminmasters" EntityType="Self.adminmaster" />
+          <EntitySet Name="doctormasters" EntityType="Self.doctormaster" />
+          <EntitySet Name="enquirymasters" EntityType="Self.enquirymaster" />
+          <EntitySet Name="notificationmasters" EntityType="Self.notificationmaster" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="healthcaredbModelStoreContainer" CdmEntityContainer="healthcaredbEntities">
+          <EntitySetMapping Name="adminmasters">
+            <EntityTypeMapping TypeName="healthcaredbModel.adminmaster">
+              <MappingFragment StoreEntitySet="adminmaster">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doctormasters">
+            <EntityTypeMapping TypeName="healthcaredbModel.doctormaster">
+              <MappingFragment StoreEntitySet="doctormaster">
+                <ScalarProperty Name="DocterId" ColumnName="DocterId" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="enquirymasters">
+            <EntityTypeMapping TypeName="healthcaredbModel.enquirymaster">
+              <MappingFragment StoreEntitySet="enquirymaster">
+                <ScalarProperty Name="EnquiryId" ColumnName="EnquiryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="EnquiryDT" ColumnName="EnquiryDT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notificationmasters">
+            <EntityTypeMapping TypeName="healthcaredbModel.notificationmaster">
+              <MappingFragment StoreEntitySet="notificationmaster">
+                <ScalarProperty Name="NotiId" ColumnName="NotiId" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

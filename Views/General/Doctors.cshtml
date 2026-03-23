@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Doctors";
+    Layout = "~/Views/Shared/General_Layout.cshtml";
+}
+@using HealthCare_ProtoType.Models
+@model List<doctormaster>
+
+
+<!-- Service Section Start-->
+
+    <h2 class="text-center text-primary mt-5 mb-4">Our Doctors</h2>
+    <div class="row">
+        @{
+            int sn = 1;
+        }
+
+        @if (Model != null)
+        {
+            foreach (doctormaster item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm h-100 text-center">
+                        <div class="card-body">
+                            <i class="bi bi-person-circle fs-1 text-primary"></i>
+                            <h5 class="card-title mt-3">@sn</h5>
+                            <h5 class="card-title mt-3">@item.DoctorName</h5>
+                            <p class="card-text">
+                                <strong>Specialization:</strong> @item.Specialization <br>
+                                <strong>Experience:</strong> @item.Experience
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                sn++;
+            }
+        }
+        else
+        {
+            <h4 class="text-danger text-center">No Doctors Available</h4>
+        }
+
+    </div>

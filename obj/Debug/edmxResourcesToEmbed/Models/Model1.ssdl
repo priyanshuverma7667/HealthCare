@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="healthcaredbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="adminmaster">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="doctormaster">
+    <Key>
+      <PropertyRef Name="DocterId" />
+    </Key>
+    <Property Name="DocterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorName" Type="varchar" MaxLength="200" />
+    <Property Name="Specialization" Type="varchar" MaxLength="300" />
+    <Property Name="Experience" Type="varchar" MaxLength="50" />
+    <Property Name="AddedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="enquirymaster">
+    <Key>
+      <PropertyRef Name="EnquiryId" />
+    </Key>
+    <Property Name="EnquiryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+    <Property Name="Email" Type="varchar" MaxLength="200" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" />
+    <Property Name="Message" Type="varchar" MaxLength="800" />
+    <Property Name="EnquiryDT" Type="datetime" />
+  </EntityType>
+  <EntityType Name="notificationmaster">
+    <Key>
+      <PropertyRef Name="NotiId" />
+    </Key>
+    <Property Name="NotiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="varchar" MaxLength="800" />
+    <Property Name="AddedOn" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="healthcaredbModelStoreContainer">
+    <EntitySet Name="adminmaster" EntityType="Self.adminmaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="doctormaster" EntityType="Self.doctormaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="enquirymaster" EntityType="Self.enquirymaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="notificationmaster" EntityType="Self.notificationmaster" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

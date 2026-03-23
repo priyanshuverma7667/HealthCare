@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="healthcaredbModelStoreContainer" CdmEntityContainer="healthcaredbEntities">
+    <EntitySetMapping Name="adminmasters">
+      <EntityTypeMapping TypeName="healthcaredbModel.adminmaster">
+        <MappingFragment StoreEntitySet="adminmaster">
+          <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="doctormasters">
+      <EntityTypeMapping TypeName="healthcaredbModel.doctormaster">
+        <MappingFragment StoreEntitySet="doctormaster">
+          <ScalarProperty Name="DocterId" ColumnName="DocterId" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enquirymasters">
+      <EntityTypeMapping TypeName="healthcaredbModel.enquirymaster">
+        <MappingFragment StoreEntitySet="enquirymaster">
+          <ScalarProperty Name="EnquiryId" ColumnName="EnquiryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="EnquiryDT" ColumnName="EnquiryDT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notificationmasters">
+      <EntityTypeMapping TypeName="healthcaredbModel.notificationmaster">
+        <MappingFragment StoreEntitySet="notificationmaster">
+          <ScalarProperty Name="NotiId" ColumnName="NotiId" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

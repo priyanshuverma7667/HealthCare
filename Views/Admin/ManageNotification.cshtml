@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "ManageNotification";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+@using HealthCare_ProtoType.Models
+@model List<notificationmaster>
+
+<h1 class="text-center bg-danger text-light">Notification Managemnet</h1>
+<div class="row p-5" style="min-height:400px;">
+    @*<div class="col-sm-10">*@
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table-striped table-hover table">
+                <thead class="table-success">
+                    <tr>
+                        <th>S.N.</th>
+                        <th>Message</th>
+                        <th>AddedOn</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int sm = 1;
+                    }
+
+                    @foreach (notificationmaster nm in Model)
+                    {
+                        <tr>
+                            <td>@sm</td>
+                            <td>@nm.Message</td>
+                            <td>@nm.AddedOn</td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-sm">
+                                    <i class="bi bi-pen"></i> Update
+                                </a>
+
+                                <a href="/Admin/DeleteNotice?id=@nm.NotiId" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this Notice?');">
+                                    <i class="bi bi-trash"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+
+                        sm++;
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
